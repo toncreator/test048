@@ -5,19 +5,25 @@ function updateBalance(amount) {
   document.getElementById("balanceAmount").textContent = balance;
 }
 
-async function checkSubscription(channel) {
-  // Здесь должна быть реализация проверки подписки на канал
-  // В данном примере используется фиктивный ответ
-  const response = await fetch(`https://api.telegram.org/checkSubscription?channel=${channel}`);
-  const data = await response.json();
-  return data.subscribed; // Возвращает true или false в зависимости от подписки
+function showCaptcha(channelId) {
+  // Показываем капчу
+  document.getElementById("captcha").style.display = "block";
+  // Скрываем кнопку канала
+  document.getElementById(channelId).style.display = "none";
 }
 
-async function subscribe(channel) {
-  const isSubscribed = await checkSubscription(channel);
-  if (isSubscribed) {
-    updateBalance(0.1);
+function solveCaptcha() {
+  const captchaInput = document.getElementById("captchaInput").value.trim().toLowerCase();
+  if (captchaInput === "captcha") {
+    // Если капча решена успешно, начисляем баланс и скрываем капчу
+    updateBalance(0.01);
+    document.getElementById("captcha").style.display = "none";
+    // Показываем кнопку канала, но делаем её неактивной
+    const channelButton = document.createElement("button");
+    channelButton.textContent = "Канал 1 (Подписка оформлена)";
+    channelButton.disabled = true;
+    document.getElementById("channel1").appendChild(channelButton);
   } else {
-    alert(`Вы не подписались на "${channel}"`);
+    alert("Неправильный код с капчи!");
   }
 }
