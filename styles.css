@@ -15,6 +15,8 @@ header {
 header img {
   height: 50px;
   width: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 #balance {
@@ -23,11 +25,11 @@ header img {
 
 #channels {
   margin-top: 20px;
+  text-align: center;
 }
 
 .channel {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   margin-bottom: 10px;
 }
 
@@ -50,4 +52,5 @@ header img {
 
 #adBanner {
   margin-top: 20px;
+  text-align: center;
 }
