@@ -5,47 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Подписка на каналы</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
 </head>
 <body>
   <header>
-    <!-- <img src="https://w7.pngwing.com/pngs/337/391/png-transparent-pink-abstract-angle-pattern-shape-text-rectangle-triangle.png"> -->
+    <img src="logo.png" alt="Логотип">
     <div id="balance">Баланс: <span id="balanceAmount">0</span> TON</div>
   </header>
   <div id="channels">
-    <div class="channel">
-      <a href="https://t.me/itsmrtony"><button class="channelButton" onclick="subscribe('MR TONY')">MR TONY</button></a>
-      <button class="updateButton" onclick="subscribe('@itsmrtony')">↻</button>
+    <div class="channel" id="channel1">
+      <button class="channelButton" onclick="showCaptcha('channel1')">Канал 1</button>
     </div>
-    <div class="channel">
-      <a href="https://t.me/diamondhandsfoundation"><button class="channelButton" onclick="subscribe('channel2')">Diamond Hands Foundation</button></a>
-      <button class="updateButton" onclick="subscribe('channel2')">↻</button>
+    <div class="channel" id="channel2">
+      <button class="channelButton" onclick="showCaptcha('channel2')">Канал 2</button>
     </div>
-    <div class="channel">
-      <a href="https://t.me/tonraffles_ru"><button class="channelButton" onclick="subscribe('channel3')">TonRaffles</button></a>
-      <button class="updateButton" onclick="subscribe('channel3')">⟳</button>
+    <div class="channel" id="channel3">
+      <button class="channelButton" onclick="showCaptcha('channel3')">Канал 3</button>
     </div>
-    <div class="channel">
-      <a href="https://t.me/JVault_ru"><button class="channelButton" onclick="subscribe('channel3')">JVault</button></a>
-      <button class="updateButton" onclick="subscribe('channel3')">⟳</button>
-    </div>
-    <div class="channel">
-      <a href="https://t.me/investkingyruu"><button class="channelButton" onclick="subscribe('channel3')">Investment kingyru</button></a>
-      <button class="updateButton" onclick="subscribe('channel3')">⟳</button>
-    </div>
+  </div>
+  <div id="captcha" style="display: none;">
+    <input type="text" id="captchaInput" placeholder="Введите код с капчи">
+    <button onclick="solveCaptcha()">Готово</button>
   </div>
   <div id="adBanner">
     <!-- Здесь будет ваш рекламный баннер -->
-    <a href="https://t.me/itsmrtony"><img src="https://sun9-57.userapi.com/impf/MKoU5wbfVndWovCR0ZY0jEWjjH9zreFM9g5c2w/1dR5xpyIhpc.jpg?size=1050x240&quality=96&sign=09a155f193a8a6de91e953b83856e6b9&c_uniq_tag=ERreeM_9S18abOIf5w486PkfmLmmMV4-xN2aq4mWOek&type=album" alt="Рекламный баннер"></a>
-    <!-- <img src="https://sun9-57.userapi.com/impf/MKoU5wbfVndWovCR0ZY0jEWjjH9zreFM9g5c2w/1dR5xpyIhpc.jpg?size=1050x240&quality=96&sign=09a155f193a8a6de91e953b83856e6b9&c_uniq_tag=ERreeM_9S18abOIf5w486PkfmLmmMV4-xN2aq4mWOek&type=album"> -->
   </div>
 
   <script src="script.js"></script>
-  <script>
-    const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
-        manifestUrl: 'https://<YOUR_APP_URL>/tonconnect-manifest.json',
-        buttonRootId: 'ton-connect'
-    });
-</script>
 </body>
 </html>
