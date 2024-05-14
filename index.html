@@ -22,11 +22,13 @@
       <button class="channelButton" onclick="showCaptcha('channel3')">Канал 3</button>
     </div>
   </div>
-  <div id="captcha" style="display: none;">
-    <label for="captchaInput">Введите код с капчи:</label>
-    <span id="captchaText"></span>
-    <input type="text" id="captchaInput" placeholder="Введите код с капчи">
-    <button onclick="solveCaptcha()">Готово</button>
+  <div id="captchaWrapper" style="display: none;">
+    <div id="captcha" class="center">
+      <label for="captchaInput">Введите код с капчи:</label>
+      <span id="captchaText"></span>
+      <input type="text" id="captchaInput" placeholder="Введите код с капчи">
+      <button onclick="solveCaptcha()">Готово</button>
+    </div>
   </div>
   <div id="adBanner">
     <!-- Здесь будет ваш рекламный баннер -->
